@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildMobileLayoutWidget(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: _ThemedAppBar(
         title: Text('Colorful Theme'),
         actions: [
           IconButton(
@@ -99,6 +99,31 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _ThemedAppBar extends StatelessWidget with PreferredSizeWidget {
+  final Widget? title;
+  final List<Widget>? actions;
+
+  final Size preferredSize;
+
+  _ThemedAppBar({
+    Key? key,
+    this.title,
+    this.actions,
+  })  : preferredSize = Size.fromHeight(kToolbarHeight),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) => AppBar(
+        title: title,
+        actions: actions,
+        backgroundColor: themeProvider.mainColor,
       ),
     );
   }
