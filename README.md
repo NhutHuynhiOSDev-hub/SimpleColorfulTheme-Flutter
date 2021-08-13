@@ -25,6 +25,7 @@ To build and run this project:
 5. How to use Change Notifier
 
 ## Packages 
+- flutter_colorpicker: https://pub.dev/packages/flutter_colorpicker
 - provider: https://pub.dev/packages/provider
 
 A few resources to get you started if this is your first Flutter project:
